@@ -15,7 +15,7 @@ def get_first_and_last_number_in_str(string: str) -> int:
     # Find all numbers in string as a list of singke digit stringd
     numbers = re.findall(r"\d", string)
 
-    return numbers[0] + numbers[-1]
+    return int(numbers[0] + numbers[-1])
 
 
 def get_first_and_last_from_list(list_of_strings: list) -> list:
@@ -26,9 +26,7 @@ def cli():
     lines = open_input_file(os.path.join(resources_path, "day_1_input.txt"))
     numbers = get_first_and_last_from_list(lines)
 
-    with open(os.path.join(resources_path, "day_1_output.txt"), "w") as f:
-        for number in numbers:
-            f.write(f"{number}\n")
+    print(f"Sum of all numbers: {sum(numbers)}")
 
 
 if __name__ == "__main__":
